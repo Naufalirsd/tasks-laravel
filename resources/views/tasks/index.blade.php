@@ -141,15 +141,13 @@
         <a href="{{ route('tasks.create') }}" class="btn btn-primary">+ Tambah Task</a>
     </div>
 
-    <form method="GET" action="{{ route('tasks.index') }}" class="filter-form">
-        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama task...">
-        
-        <select name="status">
-            <option value="">-- Semua Status --</option>
+    <form method="GET" action="{{ route('tasks.index') }}" class="filter-form" style="justify-content: flex-end; display: flex; gap: 10px;">
+        <select name="status" style="padding: 8px; font-size: 14px;">
+            <option value="">Status</option>
             <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
             <option value="selesai" {{ request('status') == 'selesai' ? 'selected' : '' }}>Selesai</option>
         </select>
-
+    
         <button type="submit" class="btn btn-info">Filter</button>
         <a href="{{ route('tasks.index') }}" class="btn btn-secondary">Reset</a>
     </form>

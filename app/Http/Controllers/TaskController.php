@@ -47,15 +47,13 @@ class TaskController extends Controller
         ]);
 
         Task::create([
-            'user_id' => Auth::id(), // Correct way to get authenticated user ID
+            'user_id' => Auth::id(), 
             'task_name' => $request->task_name,
             'is_completed' => false
         ]);
 
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
     }
-
-    // ... (keep other methods the same)
 
     public function show(Task $task)
     {
